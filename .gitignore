@@ -1,0 +1,19 @@
+# node_modules, dependency
+node_modules/
+
+# Environment files with confidential information
+.env
+
+# Log files
+*.log
+
+# Build folders (for example, if you use builders like Webpack, Babel, etc.)
+build/
+dist/
+
+# Temporary IDE files
+.vscode/
+.idea/
+
+# Vercel related files
+.vercel/
