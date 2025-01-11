@@ -4,44 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Форма обратной связи</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    .form-container {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    button {
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
@@ -65,49 +28,7 @@
     <p id="response-message"></p>
   </div>
 
-  <script>
-    // Обработчик отправки формы
-    document.getElementById('feedback-form').addEventListener('submit', async function(event) {
-      event.preventDefault();
-
-      const form = event.target;
-      const formData = new FormData(form);
-
-      const data = {
-        name: formData.get('name'),
-        phone: formData.get('phone'),
-        message: formData.get('message')
-      };
-
-      // Отправляем данные на сервер
-      try {
-        const response = await fetch('/api/feedback', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-
-        // Отображаем результат отправки
-        const responseMessage = document.getElementById('response-message');
-        if (result.status === 200) {
-          responseMessage.textContent = result.message;
-          responseMessage.style.color = 'green';
-        } else {
-          responseMessage.textContent = 'Произошла ошибка при отправке.';
-          responseMessage.style.color = 'red';
-        }
-      } catch (error) {
-        console.error('Ошибка:', error);
-        const responseMessage = document.getElementById('response-message');
-        responseMessage.textContent = 'Произошла ошибка при отправке.';
-        responseMessage.style.color = 'red';
-      }
-    });
-  </script>
+  <script src="./script.js"></script>
 
 </body>
 </html>
