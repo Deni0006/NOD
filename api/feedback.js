@@ -11,8 +11,8 @@ module.exports = async (req, res) => {
         port: 465,
         secure: true,
         auth: {
-          user: "bdeni5812@xmail.ru",     // Используем переменные окружения
-          pass: "wWnnxUXQHz5uQeYjDpmR",  // Используем переменные окружения
+          user: process.env.EMAIL_USER,     // Используем переменные окружения
+          pass: process.env.EMAIL_PASS,    // Используем переменные окружения
         },
       });
 
@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
 
       // Отправка письма
       await transporter.sendMail({
-        from: "bdeni5812@xmail.ru",    // От кого
+        from: process.env.EMAIL_USER,  // От кого
         to: "daudmerzoev@mail.ru",    // Кому
         subject: "Тема письма",
         text: `${name} ${phone} ${message}`,
