@@ -23,9 +23,9 @@ module.exports = async (req, res) => {
         from: process.env.EMAIL_USER,  // От кого
         to: "daudmerzoev@mail.ru",    // Кому
         subject: "Тема письма",
-        text: `${name} ${phone} ${message}`,
+        text: `"Пользователь"${name}"просит перезвонить" `,
         html: `
-          <p><strong>Имя:</strong> ${name}</p>
+          <p><strong>Ф.И.О:</strong> ${name}</p>
           <p><strong>Телефон:</strong> ${phone}</p>
           <p><strong>Сообщение:</strong> ${message}</p>
         `,
